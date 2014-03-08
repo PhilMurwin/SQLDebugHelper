@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F62BA45E-F59A-4C7D-AC91-BB4960FEC19C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SQLDebugHelper</RootNamespace>
+    <AssemblyName>SQLDebugHelper</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SQLDebugHelper.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Images\sql_runner.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastColoredTextBox, Version=2.7.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GraphSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GraphSharp.Controls, Version=1.0.3438.42202, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QuickGraph, Version=3.2.40122.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFExtensions, Version=1.0.3437.34043, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.cs" />
+    <Compile Include="Graph\GraphPanel.xaml.cs">
+      <DependentUpon>GraphPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProcMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProcMap.Designer.cs">
+      <DependentUpon>ProcMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\Config\ServerConfigSection.cs" />
+    <Compile Include="Framework\Controls\FloatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Controls\FloatToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Framework\Data\CADONet_Sql.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Utility\Logger.cs" />
+    <Compile Include="Framework\Utility\Utils.cs" />
+    <Compile Include="Graph\GraphToImage.cs" />
+    <Compile Include="InsertGenerator\FieldInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertGenerator\FieldInfo.Designer.cs">
+      <DependentUpon>FieldInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertGenerator\InsertGenerator.cs" />
+    <Compile Include="SQLDebugHelper\DebugHelpers.cs" />
+    <Compile Include="SQLDebugHelper\DBObjects.cs" />
+    <Compile Include="SQLDebugHelper\GenerateProcTree.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLDebugHelper\QueryToPrint.cs" />
+    <Compile Include="Forms\SQLDebugHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SQLDebugHelper.Designer.cs">
+      <DependentUpon>SQLDebugHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Libraries\Tree\ComplexSubtree.cs" />
+    <Compile Include="Resources\Libraries\Tree\ComplexTree.cs" />
+    <Compile Include="Resources\Libraries\Tree\ComplexTreeNode.cs" />
+    <Compile Include="Resources\Libraries\Tree\ComplexTreeNodeList.cs" />
+    <Compile Include="Resources\Libraries\Tree\Enums.cs" />
+    <Compile Include="Resources\Libraries\Tree\SimpleSubtree.cs" />
+    <Compile Include="Resources\Libraries\Tree\SimpleTree.cs" />
+    <Compile Include="Resources\Libraries\Tree\SimpleTreeNode.cs" />
+    <Compile Include="Resources\Libraries\Tree\SimpleTreeNodeList.cs" />
+    <EmbeddedResource Include="Forms\ProcMap.resx">
+      <DependentUpon>ProcMap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertGenerator\FieldInfo.resx">
+      <DependentUpon>FieldInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\SQLDebugHelper.resx">
+      <DependentUpon>SQLDebugHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\Libraries\GraphSharp.Controls.dll" />
+    <None Include="Resources\Libraries\GraphSharp.dll" />
+    <None Include="Resources\Libraries\QuickGraph.dll" />
+    <None Include="Resources\Libraries\WPFExtensions.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Images\print.png" />
+    <Content Include="Resources\Images\sql_runner.ico" />
+    <None Include="Resources\Libraries\FastColoredTextBox.dll" />
+    <Content Include="Queries\ProcsNFunctions_Query.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Graph\GraphPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,21 @@
+﻿<DockPanel x:Class="Windows.Controls.GraphPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Windows.Controls="clr-namespace:Windows.Controls"
+        xmlns:isom="clr-namespace:GraphSharp.Algorithms.Layout.Contextual;assembly=GraphSharp"
+        xmlns:zoom="clr-namespace:WPFExtensions.Controls;assembly=WPFExtensions"
+        Height="600"
+        Width="600">
+    <DockPanel>
+        <zoom:ZoomControl>
+          <Windows.Controls:MyGraphLayout x:Name="layout"
+                                  LayoutAlgorithmType="Tree"
+                                  OverlapRemovalAlgorithmType="FSA"
+                                  Graph="{Binding}"
+                                  AsyncCompute="true"
+                                  ShowAllStates="false"
+                                  HighlightAlgorithmType="Simple">
+            </Windows.Controls:MyGraphLayout>
+        </zoom:ZoomControl>
+    </DockPanel>
+</DockPanel>
