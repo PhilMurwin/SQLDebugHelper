@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.ComponentModel;
 
-namespace Framework.Controls
+namespace CustomControls
 {
 	public class FloatToolStrip : ToolStrip
 	{

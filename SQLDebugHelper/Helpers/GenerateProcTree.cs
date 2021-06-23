@@ -14,17 +14,17 @@ namespace SQLDebugHelper
 
 		private HashSet<string> m_MasterNodeList = new HashSet<string>();
 
-		public string GenerateProcTreeChart(string procName, string profileName)
+        public string GenerateProcTreeChart( string procName, string serverProfile, string dbName )
 		{
-			m_ProfileName = profileName;
+            m_ProfileName = serverProfile;
 			
-			RegExMatches = DBObjects.RegExMatchList(profileName);
+            RegExMatches = DBObjects.RegExMatchList( serverProfile, dbName );
 
-			SimpleTreeNode<string> parentProc = new SimpleTreeNode<string>(procName);
+            var parentProc = new SimpleTreeNode<string>(procName);
 
-			FindChildren(parentProc);			
+            FindChildProcedures(parentProc);
 
-			StringBuilder graph = new StringBuilder();
+            var graph = new StringBuilder();
 
 			foreach (var node in m_MasterNodeList)
 			{
@@ -76,15 +76,15 @@ namespace SQLDebugHelper
 			return graph.ToString();
 		}
 
-		private void FindChildren(SimpleTreeNode<string> parent)
+        private void FindChildProcedures(SimpleTreeNode<string> parent)
 		{
-			string parentProc = parent.Value;
+            var parentProc = parent.Value;
 			
 			m_MasterNodeList.Add(parentProc);
 
-            string procBody = DBObjects.GetSQLText(parentProc);
+            var procBody = DBObjects.GetSQLText(parentProc);
 			
-			List<string> childProcs = GenProcListv3(procBody, parentProc);
+            var childProcs = GenProcListv3(procBody, parentProc);
 
 			foreach (var procName in childProcs)
 			{
@@ -95,7 +95,7 @@ namespace SQLDebugHelper
 
 				if (CheckForDuplicates(childProc, procName) < m_MaxSameNestedProc)
 				{
-					FindChildren(childProc);
+                    FindChildProcedures(childProc);
 				}
 			}
 
@@ -122,16 +122,17 @@ namespace SQLDebugHelper
 
 		private List<string> GenProcListv3(string input, string procName)
 		{
-			List<string> procsNFunctions = new List<string>();
+            var procsNFunctions = new List<string>();
 
-			string beginProcCall = "((exec\\s+\\[?)|(dbo.))";
+            var beginProcCall = "((exec)\\s+((\\[?dbo\\]?.)|(\\[?ff\\]?.))?)";
 
 			//Find all procs contained in the input
-			MatchCollection procMatches = Regex.Matches(input, beginProcCall + "(" + RegExMatches + ")\\b", RegexOptions.IgnoreCase);
+            var procMatches = Regex.Matches(input, beginProcCall + "\\s*(" + RegExMatches + ")\\b", RegexOptions.IgnoreCase);
 
 			foreach (Match procMatch in procMatches)
 			{
 				string proc = Regex.Replace(procMatch.Value, beginProcCall, "", RegexOptions.IgnoreCase);
+                proc = proc.Replace( "[", "" ).Replace( "]", "" );
 
 				if (!procsNFunctions.Contains(proc) && !proc.ToLower().EndsWith(procName.ToLower()))
 				{
@@ -143,37 +144,5 @@ namespace SQLDebugHelper
 
 			return procsNFunctions;
 		}
-
-        //private string GetSQLText(string procName)
-        //{
-        //    StringBuilder procBody = new StringBuilder();
-
-        //    DBConnection DB = new DBConnection();
-        //    DB.SetDB(m_ProfileName);
-
-        //    try
-        //    {
-        //        string sql = string.Format("sp_helptext {0}", procName);
-
-        //        DB.CallSQL(sql, true);
-
-        //        while (DB.AnotherSQLRecord())
-        //        {
-        //            procBody.Append(DB.GetSQLData(1));
-        //        }
-
-        //        DB.CloseDB();
-        //    }
-        //    catch (Exception err)
-        //    {
-        //        Logger.WriteMessage(Logger.MessageType.Error, "Error retreiving proc body: " + err.Message);
-        //    }
-        //    finally
-        //    {
-        //        DB.CloseDB();
-        //    }
-
-        //    return procBody.ToString();
-        //}
 	}
 }

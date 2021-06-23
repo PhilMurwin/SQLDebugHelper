@@ -78,15 +78,15 @@ namespace SQLDebugHelper
 		/// <param name="inputSQL"></param>
 		/// <param name="profileName"></param>
 		/// <returns></returns>
-		public static string GenerateListOfTables(string inputSQL, string profileName)
+		public static string GenerateListOfTables( string inputSQL, string serverName, string dbName )
 		{
 			StringBuilder listOfTables = new StringBuilder();
 			List<string> tableNames = new List<string>();
 
-            inputSQL = GetProcBody(inputSQL, profileName);
+            inputSQL = GetProcBody( inputSQL, serverName, dbName );
 
 			//Look for tables present in each line
-			foreach (var table in DBObjects.GetTableList(profileName))
+			foreach( var table in DBObjects.GetTableList( serverName, dbName ) )
 			{
 				if (inputSQL.ToLower().Contains(table.ToLower()))
 				{
@@ -118,15 +118,15 @@ namespace SQLDebugHelper
 		/// <param name="inputSQL"></param>
 		/// <param name="profileName"></param>
 		/// <returns></returns>
-		public static string GenerateListOfProcsNFunctions(string inputSQL, string profileName)
+		public static string GenerateListOfProcsNFunctions( string inputSQL, string serverProfile, string dbName )
 		{
 			StringBuilder listOfProcsNFunctions = new StringBuilder();
 			List<string> procsNFunctions = new List<string>();
 
-            inputSQL = GetProcBody(inputSQL, profileName);
+            inputSQL = GetProcBody( inputSQL, serverProfile, dbName );
 
 			//Look for tables present in each line
-			foreach (var proc in DBObjects.GetProcList(profileName))
+			foreach (var proc in DBObjects.GetProcList( serverProfile, dbName ) )
 			{
 				if (inputSQL.ToLower().Contains(proc.ToLower()))
 				{
@@ -152,10 +152,10 @@ namespace SQLDebugHelper
 			return (listOfProcsNFunctions.Length > 0 ? listOfProcsNFunctions.ToString() : "No Procs or Functions Found");
 		}
 
-        private static string GetProcBody(string inputSQL, string profileName)
+        private static string GetProcBody( string inputSQL, string serverProfile, string dbName )
         {
             if (inputSQL.Length <= Global.MaxSQLObjectNameLength
-                && DBObjects.GetProcList(profileName).Contains(inputSQL))
+                && DBObjects.GetProcList( serverProfile, dbName ).Contains(inputSQL))
             {
                 inputSQL = DBObjects.GetSQLText(inputSQL);
             }

@@ -28,51 +28,173 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SQLDebugHelper));
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.toolSettings = new CustomControls.FloatToolStrip();
+            this.lblServer = new System.Windows.Forms.ToolStripLabel();
+            this.toolCboServer = new System.Windows.Forms.ToolStripComboBox();
+            this.lblDB = new System.Windows.Forms.ToolStripLabel();
+            this.toolCboDB = new System.Windows.Forms.ToolStripComboBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.mnuMain = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabDebugHelp = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pnlTabDebugHelp = new System.Windows.Forms.SplitContainer();
             this.grpInput = new System.Windows.Forms.GroupBox();
             this.txtInput = new FastColoredTextBoxNS.FastColoredTextBox();
             this.grpOutput = new System.Windows.Forms.GroupBox();
             this.txtOutput = new FastColoredTextBoxNS.FastColoredTextBox();
-            this.toolSettings = new Framework.Controls.FloatToolStrip();
-            this.lblProfile = new System.Windows.Forms.ToolStripLabel();
-            this.toolCboProfiles = new System.Windows.Forms.ToolStripComboBox();
+            this.toolDebug = new CustomControls.FloatToolStrip();
             this.btnMakeDrops = new System.Windows.Forms.ToolStripButton();
             this.btnPrintExec = new System.Windows.Forms.ToolStripButton();
             this.btnGenInserts = new System.Windows.Forms.ToolStripButton();
-            this.btnListTable = new System.Windows.Forms.ToolStripButton();
-            this.btnListProcs = new System.Windows.Forms.ToolStripButton();
-            this.btnMapProc = new System.Windows.Forms.ToolStripButton();
+            this.tabCodeGeneration = new System.Windows.Forms.TabPage();
+            this.pnlCodeGen = new System.Windows.Forms.SplitContainer();
+            this.treeDBView = new System.Windows.Forms.TreeView();
+            this.contextTreeDB = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctxGenBaseModel = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctxGenPOCO = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctxViewData = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctxSQLFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctxMapProc = new System.Windows.Forms.ToolStripMenuItem();
+            this.grpSearch = new System.Windows.Forms.GroupBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.txtCodeGen = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.toolCodeGen = new CustomControls.FloatToolStrip();
+            this.btnCopyToClipboard = new System.Windows.Forms.ToolStripButton();
             this.btnShowMap = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            this.toolSettings.SuspendLayout();
+            this.mnuMain.SuspendLayout();
+            this.tabDebugHelp.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlTabDebugHelp)).BeginInit();
+            this.pnlTabDebugHelp.Panel1.SuspendLayout();
+            this.pnlTabDebugHelp.Panel2.SuspendLayout();
+            this.pnlTabDebugHelp.SuspendLayout();
             this.grpInput.SuspendLayout();
             this.grpOutput.SuspendLayout();
-            this.toolSettings.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.toolDebug.SuspendLayout();
+            this.tabCodeGeneration.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlCodeGen)).BeginInit();
+            this.pnlCodeGen.Panel1.SuspendLayout();
+            this.pnlCodeGen.Panel2.SuspendLayout();
+            this.pnlCodeGen.SuspendLayout();
+            this.contextTreeDB.SuspendLayout();
+            this.grpSearch.SuspendLayout();
+            this.toolCodeGen.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer1
+            // toolSettings
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 49);
-            this.splitContainer1.Name = "splitContainer1";
+            this.toolSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblServer,
+            this.toolCboServer,
+            this.lblDB,
+            this.toolCboDB});
+            this.toolSettings.Location = new System.Drawing.Point(0, 24);
+            this.toolSettings.Name = "toolSettings";
+            this.toolSettings.Size = new System.Drawing.Size(866, 25);
+            this.toolSettings.TabIndex = 1;
+            this.toolSettings.Text = "Settings";
             // 
-            // splitContainer1.Panel1
+            // lblServer
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.grpInput);
+            this.lblServer.Name = "lblServer";
+            this.lblServer.Size = new System.Drawing.Size(79, 22);
+            this.lblServer.Text = "Server Profile:";
             // 
-            // splitContainer1.Panel2
+            // toolCboServer
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.grpOutput);
-            this.splitContainer1.Size = new System.Drawing.Size(866, 541);
-            this.splitContainer1.SplitterDistance = 408;
-            this.splitContainer1.TabIndex = 0;
+            this.toolCboServer.Name = "toolCboServer";
+            this.toolCboServer.Size = new System.Drawing.Size(121, 25);
+            // 
+            // lblDB
+            // 
+            this.lblDB.Name = "lblDB";
+            this.lblDB.Size = new System.Drawing.Size(58, 22);
+            this.lblDB.Text = "Database:";
+            // 
+            // toolCboDB
+            // 
+            this.toolCboDB.Name = "toolCboDB";
+            this.toolCboDB.Size = new System.Drawing.Size(200, 25);
+            this.toolCboDB.SelectedIndexChanged += new System.EventHandler(this.toolCboDB_SelectedIndexChanged);
+            this.toolCboDB.Click += new System.EventHandler(this.toolCboDB_SelectedIndexChanged);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 590);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(866, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // mnuMain
+            // 
+            this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.mnuMain.Location = new System.Drawing.Point(0, 0);
+            this.mnuMain.Name = "mnuMain";
+            this.mnuMain.Size = new System.Drawing.Size(866, 24);
+            this.mnuMain.TabIndex = 2;
+            this.mnuMain.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFileExit});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // mnuFileExit
+            // 
+            this.mnuFileExit.Name = "mnuFileExit";
+            this.mnuFileExit.Size = new System.Drawing.Size(93, 22);
+            this.mnuFileExit.Text = "E&xit";
+            this.mnuFileExit.Click += new System.EventHandler(this.mnuFileExit_Click);
+            // 
+            // tabDebugHelp
+            // 
+            this.tabDebugHelp.Controls.Add(this.tabPage1);
+            this.tabDebugHelp.Controls.Add(this.tabCodeGeneration);
+            this.tabDebugHelp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabDebugHelp.Location = new System.Drawing.Point(0, 49);
+            this.tabDebugHelp.Name = "tabDebugHelp";
+            this.tabDebugHelp.SelectedIndex = 0;
+            this.tabDebugHelp.Size = new System.Drawing.Size(866, 541);
+            this.tabDebugHelp.TabIndex = 3;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.pnlTabDebugHelp);
+            this.tabPage1.Controls.Add(this.toolDebug);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(858, 515);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Debug Helpers";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // pnlTabDebugHelp
+            // 
+            this.pnlTabDebugHelp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTabDebugHelp.Location = new System.Drawing.Point(3, 28);
+            this.pnlTabDebugHelp.Name = "pnlTabDebugHelp";
+            // 
+            // pnlTabDebugHelp.Panel1
+            // 
+            this.pnlTabDebugHelp.Panel1.Controls.Add(this.grpInput);
+            // 
+            // pnlTabDebugHelp.Panel2
+            // 
+            this.pnlTabDebugHelp.Panel2.Controls.Add(this.grpOutput);
+            this.pnlTabDebugHelp.Size = new System.Drawing.Size(852, 484);
+            this.pnlTabDebugHelp.SplitterDistance = 399;
+            this.pnlTabDebugHelp.TabIndex = 0;
             // 
             // grpInput
             // 
@@ -80,7 +202,7 @@
             this.grpInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpInput.Location = new System.Drawing.Point(0, 0);
             this.grpInput.Name = "grpInput";
-            this.grpInput.Size = new System.Drawing.Size(408, 541);
+            this.grpInput.Size = new System.Drawing.Size(399, 484);
             this.grpInput.TabIndex = 1;
             this.grpInput.TabStop = false;
             this.grpInput.Text = "Input";
@@ -96,7 +218,7 @@
             this.txtInput.Name = "txtInput";
             this.txtInput.Paddings = new System.Windows.Forms.Padding(0);
             this.txtInput.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.txtInput.Size = new System.Drawing.Size(402, 522);
+            this.txtInput.Size = new System.Drawing.Size(393, 465);
             this.txtInput.TabIndex = 0;
             // 
             // grpOutput
@@ -105,7 +227,7 @@
             this.grpOutput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpOutput.Location = new System.Drawing.Point(0, 0);
             this.grpOutput.Name = "grpOutput";
-            this.grpOutput.Size = new System.Drawing.Size(454, 541);
+            this.grpOutput.Size = new System.Drawing.Size(449, 484);
             this.grpOutput.TabIndex = 2;
             this.grpOutput.TabStop = false;
             this.grpOutput.Text = "Output";
@@ -121,40 +243,21 @@
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.Paddings = new System.Windows.Forms.Padding(0);
             this.txtOutput.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.txtOutput.Size = new System.Drawing.Size(448, 522);
+            this.txtOutput.Size = new System.Drawing.Size(443, 465);
             this.txtOutput.TabIndex = 0;
             this.txtOutput.WordWrap = true;
             // 
-            // toolSettings
+            // toolDebug
             // 
-            this.toolSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblProfile,
-            this.toolCboProfiles,
+            this.toolDebug.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnMakeDrops,
             this.btnPrintExec,
-            this.btnGenInserts,
-            this.btnListTable,
-            this.btnListProcs,
-            this.btnMapProc,
-            this.btnShowMap});
-            this.toolSettings.Location = new System.Drawing.Point(0, 24);
-            this.toolSettings.Name = "toolSettings";
-            this.toolSettings.Size = new System.Drawing.Size(866, 25);
-            this.toolSettings.TabIndex = 1;
-            this.toolSettings.Text = "Settings";
-            // 
-            // lblProfile
-            // 
-            this.lblProfile.Name = "lblProfile";
-            this.lblProfile.Size = new System.Drawing.Size(62, 22);
-            this.lblProfile.Text = "DB Profile:";
-            // 
-            // toolCboProfiles
-            // 
-            this.toolCboProfiles.Name = "toolCboProfiles";
-            this.toolCboProfiles.Size = new System.Drawing.Size(121, 25);
-            this.toolCboProfiles.SelectedIndexChanged += new System.EventHandler(this.toolCboProfiles_SelectedIndexChanged);
-            this.toolCboProfiles.Click += new System.EventHandler(this.toolCboProfiles_SelectedIndexChanged);
+            this.btnGenInserts});
+            this.toolDebug.Location = new System.Drawing.Point(3, 3);
+            this.toolDebug.Name = "toolDebug";
+            this.toolDebug.Size = new System.Drawing.Size(852, 25);
+            this.toolDebug.TabIndex = 0;
+            this.toolDebug.Text = "floatToolStrip1";
             // 
             // btnMakeDrops
             // 
@@ -162,7 +265,7 @@
             this.btnMakeDrops.Image = ((System.Drawing.Image)(resources.GetObject("btnMakeDrops.Image")));
             this.btnMakeDrops.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnMakeDrops.Name = "btnMakeDrops";
-            this.btnMakeDrops.Size = new System.Drawing.Size(84, 22);
+            this.btnMakeDrops.Size = new System.Drawing.Size(82, 22);
             this.btnMakeDrops.Text = "# Table Drops";
             this.btnMakeDrops.ToolTipText = "Generate drop statements for the # tables in the sql input window.";
             this.btnMakeDrops.Click += new System.EventHandler(this.toolStripButton_Click);
@@ -172,8 +275,8 @@
             this.btnPrintExec.Image = global::SQLDebugHelper.Properties.Resources.print;
             this.btnPrintExec.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrintExec.Name = "btnPrintExec";
-            this.btnPrintExec.Size = new System.Drawing.Size(78, 22);
-            this.btnPrintExec.Text = "Print Exec";
+            this.btnPrintExec.Size = new System.Drawing.Size(94, 22);
+            this.btnPrintExec.Text = "Exec 2 String";
             this.btnPrintExec.ToolTipText = "Paste exec statements in the input window and output a piece of sql to output the" +
     " statement to the print window";
             this.btnPrintExec.Click += new System.EventHandler(this.toolStripButton_Click);
@@ -189,108 +292,196 @@
             this.btnGenInserts.ToolTipText = "Generates insert statements for tab delimited in the input window.";
             this.btnGenInserts.Click += new System.EventHandler(this.toolStripButton_Click);
             // 
-            // btnListTable
+            // tabCodeGeneration
             // 
-            this.btnListTable.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnListTable.Image = ((System.Drawing.Image)(resources.GetObject("btnListTable.Image")));
-            this.btnListTable.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnListTable.Name = "btnListTable";
-            this.btnListTable.Size = new System.Drawing.Size(66, 22);
-            this.btnListTable.Text = "List Tables";
-            this.btnListTable.ToolTipText = "Generates list of tables in the sql in the input window using the selected databa" +
-    "se profile.";
-            this.btnListTable.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.tabCodeGeneration.Controls.Add(this.pnlCodeGen);
+            this.tabCodeGeneration.Controls.Add(this.toolCodeGen);
+            this.tabCodeGeneration.Location = new System.Drawing.Point(4, 22);
+            this.tabCodeGeneration.Name = "tabCodeGeneration";
+            this.tabCodeGeneration.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCodeGeneration.Size = new System.Drawing.Size(858, 515);
+            this.tabCodeGeneration.TabIndex = 1;
+            this.tabCodeGeneration.Text = "Code Generation";
+            this.tabCodeGeneration.UseVisualStyleBackColor = true;
+            this.tabCodeGeneration.Enter += new System.EventHandler(this.tabCodeGeneration_Enter);
             // 
-            // btnListProcs
+            // pnlCodeGen
             // 
-            this.btnListProcs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnListProcs.Image = ((System.Drawing.Image)(resources.GetObject("btnListProcs.Image")));
-            this.btnListProcs.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnListProcs.Name = "btnListProcs";
-            this.btnListProcs.Size = new System.Drawing.Size(108, 22);
-            this.btnListProcs.Text = "List Procs && Funcs";
-            this.btnListProcs.ToolTipText = "Generates list of procs & functions in the sql in the input window using the sele" +
-    "cted database profile.";
-            this.btnListProcs.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.pnlCodeGen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCodeGen.Location = new System.Drawing.Point(3, 28);
+            this.pnlCodeGen.Name = "pnlCodeGen";
             // 
-            // btnMapProc
+            // pnlCodeGen.Panel1
             // 
-            this.btnMapProc.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnMapProc.Image = ((System.Drawing.Image)(resources.GetObject("btnMapProc.Image")));
-            this.btnMapProc.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnMapProc.Name = "btnMapProc";
-            this.btnMapProc.Size = new System.Drawing.Size(62, 22);
-            this.btnMapProc.Text = "Map Proc";
-            this.btnMapProc.ToolTipText = "Map the nested calls of procs and functions up to 10 levels deep";
-            this.btnMapProc.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.pnlCodeGen.Panel1.Controls.Add(this.treeDBView);
+            this.pnlCodeGen.Panel1.Controls.Add(this.grpSearch);
+            // 
+            // pnlCodeGen.Panel2
+            // 
+            this.pnlCodeGen.Panel2.Controls.Add(this.txtCodeGen);
+            this.pnlCodeGen.Size = new System.Drawing.Size(852, 484);
+            this.pnlCodeGen.SplitterDistance = 284;
+            this.pnlCodeGen.TabIndex = 1;
+            // 
+            // treeDBView
+            // 
+            this.treeDBView.ContextMenuStrip = this.contextTreeDB;
+            this.treeDBView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeDBView.Location = new System.Drawing.Point(0, 47);
+            this.treeDBView.Name = "treeDBView";
+            this.treeDBView.Size = new System.Drawing.Size(284, 437);
+            this.treeDBView.TabIndex = 1;
+            this.treeDBView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeDBView_NodeMouseClick);
+            // 
+            // contextTreeDB
+            // 
+            this.contextTreeDB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctxGenBaseModel,
+            this.ctxGenPOCO,
+            this.ctxViewData,
+            this.ctxSQLFile,
+            this.ctxMapProc});
+            this.contextTreeDB.Name = "contextTreeDB";
+            this.contextTreeDB.Size = new System.Drawing.Size(182, 114);
+            this.contextTreeDB.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextTreeDB_ItemClicked);
+            // 
+            // ctxGenBaseModel
+            // 
+            this.ctxGenBaseModel.Name = "ctxGenBaseModel";
+            this.ctxGenBaseModel.Size = new System.Drawing.Size(181, 22);
+            this.ctxGenBaseModel.Text = "Gen BaseViewModel";
+            this.ctxGenBaseModel.ToolTipText = "Generate BaseViewModel class to output pane";
+            // 
+            // ctxGenPOCO
+            // 
+            this.ctxGenPOCO.Name = "ctxGenPOCO";
+            this.ctxGenPOCO.Size = new System.Drawing.Size(181, 22);
+            this.ctxGenPOCO.Text = "Gen POCO";
+            // 
+            // ctxViewData
+            // 
+            this.ctxViewData.Name = "ctxViewData";
+            this.ctxViewData.Size = new System.Drawing.Size(181, 22);
+            this.ctxViewData.Text = "View Top 10 Rows";
+            // 
+            // ctxSQLFile
+            // 
+            this.ctxSQLFile.Name = "ctxSQLFile";
+            this.ctxSQLFile.Size = new System.Drawing.Size(181, 22);
+            this.ctxSQLFile.Text = "Get SQL File";
+            // 
+            // ctxMapProc
+            // 
+            this.ctxMapProc.Name = "ctxMapProc";
+            this.ctxMapProc.Size = new System.Drawing.Size(181, 22);
+            this.ctxMapProc.Text = "Map Proc";
+            // 
+            // grpSearch
+            // 
+            this.grpSearch.Controls.Add(this.txtSearch);
+            this.grpSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grpSearch.Location = new System.Drawing.Point(0, 0);
+            this.grpSearch.Name = "grpSearch";
+            this.grpSearch.Size = new System.Drawing.Size(284, 47);
+            this.grpSearch.TabIndex = 0;
+            this.grpSearch.TabStop = false;
+            this.grpSearch.Text = "Search";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSearch.Location = new System.Drawing.Point(3, 16);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(278, 20);
+            this.txtSearch.TabIndex = 0;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            // 
+            // txtCodeGen
+            // 
+            this.txtCodeGen.AutoScrollMinSize = new System.Drawing.Size(25, 15);
+            this.txtCodeGen.BackBrush = null;
+            this.txtCodeGen.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCodeGen.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.txtCodeGen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCodeGen.Location = new System.Drawing.Point(0, 0);
+            this.txtCodeGen.Name = "txtCodeGen";
+            this.txtCodeGen.Paddings = new System.Windows.Forms.Padding(0);
+            this.txtCodeGen.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.txtCodeGen.Size = new System.Drawing.Size(564, 484);
+            this.txtCodeGen.TabIndex = 1;
+            // 
+            // toolCodeGen
+            // 
+            this.toolCodeGen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnCopyToClipboard,
+            this.btnShowMap});
+            this.toolCodeGen.Location = new System.Drawing.Point(3, 3);
+            this.toolCodeGen.Name = "toolCodeGen";
+            this.toolCodeGen.Size = new System.Drawing.Size(852, 25);
+            this.toolCodeGen.TabIndex = 0;
+            this.toolCodeGen.Text = "floatToolStrip1";
+            // 
+            // btnCopyToClipboard
+            // 
+            this.btnCopyToClipboard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnCopyToClipboard.Enabled = false;
+            this.btnCopyToClipboard.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyToClipboard.Image")));
+            this.btnCopyToClipboard.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCopyToClipboard.Name = "btnCopyToClipboard";
+            this.btnCopyToClipboard.Size = new System.Drawing.Size(109, 22);
+            this.btnCopyToClipboard.Text = "Copy To Clipboard";
+            this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
             // 
             // btnShowMap
             // 
             this.btnShowMap.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnShowMap.Enabled = false;
             this.btnShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnShowMap.Image")));
             this.btnShowMap.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnShowMap.Name = "btnShowMap";
             this.btnShowMap.Size = new System.Drawing.Size(67, 22);
             this.btnShowMap.Text = "Show Map";
-            this.btnShowMap.Visible = false;
-            this.btnShowMap.Click += new System.EventHandler(this.toolStripButton_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 590);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(866, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(866, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuFileExit});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
-            // 
-            // mnuFileExit
-            // 
-            this.mnuFileExit.Name = "mnuFileExit";
-            this.mnuFileExit.Size = new System.Drawing.Size(92, 22);
-            this.mnuFileExit.Text = "E&xit";
-            this.mnuFileExit.Click += new System.EventHandler(this.mnuFileExit_Click);
             // 
             // SQLDebugHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 612);
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.tabDebugHelp);
             this.Controls.Add(this.toolSettings);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.mnuMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.mnuMain;
             this.Name = "SQLDebugHelper";
             this.Text = "SQLDebugHelper";
             this.Load += new System.EventHandler(this.SQLDebugHelper_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.ResumeLayout(false);
-            this.grpInput.ResumeLayout(false);
-            this.grpOutput.ResumeLayout(false);
             this.toolSettings.ResumeLayout(false);
             this.toolSettings.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.mnuMain.ResumeLayout(false);
+            this.mnuMain.PerformLayout();
+            this.tabDebugHelp.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.pnlTabDebugHelp.Panel1.ResumeLayout(false);
+            this.pnlTabDebugHelp.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlTabDebugHelp)).EndInit();
+            this.pnlTabDebugHelp.ResumeLayout(false);
+            this.grpInput.ResumeLayout(false);
+            this.grpOutput.ResumeLayout(false);
+            this.toolDebug.ResumeLayout(false);
+            this.toolDebug.PerformLayout();
+            this.tabCodeGeneration.ResumeLayout(false);
+            this.tabCodeGeneration.PerformLayout();
+            this.pnlCodeGen.Panel1.ResumeLayout(false);
+            this.pnlCodeGen.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlCodeGen)).EndInit();
+            this.pnlCodeGen.ResumeLayout(false);
+            this.contextTreeDB.ResumeLayout(false);
+            this.grpSearch.ResumeLayout(false);
+            this.grpSearch.PerformLayout();
+            this.toolCodeGen.ResumeLayout(false);
+            this.toolCodeGen.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,23 +490,39 @@
 		#endregion
 
         private System.Windows.Forms.StatusStrip statusStrip1;
-		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.SplitContainer splitContainer1;
-		private System.Windows.Forms.GroupBox grpInput;
-		private FastColoredTextBoxNS.FastColoredTextBox txtInput;
-		private System.Windows.Forms.GroupBox grpOutput;
-        private FastColoredTextBoxNS.FastColoredTextBox txtOutput;
+		private System.Windows.Forms.MenuStrip mnuMain;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuFileExit;
-		private System.Windows.Forms.ToolStripComboBox toolCboProfiles;
-        private System.Windows.Forms.ToolStripLabel lblProfile;
+		private System.Windows.Forms.ToolStripComboBox toolCboServer;
+        private System.Windows.Forms.ToolStripLabel lblServer;
+        private CustomControls.FloatToolStrip toolSettings;
+        private System.Windows.Forms.TabControl tabDebugHelp;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.SplitContainer pnlTabDebugHelp;
+        private System.Windows.Forms.GroupBox grpInput;
+        private FastColoredTextBoxNS.FastColoredTextBox txtInput;
+        private System.Windows.Forms.GroupBox grpOutput;
+        private FastColoredTextBoxNS.FastColoredTextBox txtOutput;
+        private CustomControls.FloatToolStrip toolDebug;
         private System.Windows.Forms.ToolStripButton btnMakeDrops;
         private System.Windows.Forms.ToolStripButton btnPrintExec;
         private System.Windows.Forms.ToolStripButton btnGenInserts;
-        private System.Windows.Forms.ToolStripButton btnListTable;
-        private System.Windows.Forms.ToolStripButton btnListProcs;
-        private System.Windows.Forms.ToolStripButton btnMapProc;
+        private System.Windows.Forms.TabPage tabCodeGeneration;
+        private System.Windows.Forms.SplitContainer pnlCodeGen;
+        private System.Windows.Forms.TreeView treeDBView;
+        private System.Windows.Forms.GroupBox grpSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private CustomControls.FloatToolStrip toolCodeGen;
+        private System.Windows.Forms.ToolStripButton btnCopyToClipboard;
         private System.Windows.Forms.ToolStripButton btnShowMap;
-        private Framework.Controls.FloatToolStrip toolSettings;
-	}
+        private System.Windows.Forms.ContextMenuStrip contextTreeDB;
+        private System.Windows.Forms.ToolStripMenuItem ctxGenBaseModel;
+        private System.Windows.Forms.ToolStripMenuItem ctxGenPOCO;
+        private System.Windows.Forms.ToolStripMenuItem ctxViewData;
+        private System.Windows.Forms.ToolStripMenuItem ctxSQLFile;
+        private System.Windows.Forms.ToolStripMenuItem ctxMapProc;
+        private System.Windows.Forms.ToolStripLabel lblDB;
+        private System.Windows.Forms.ToolStripComboBox toolCboDB;
+        private FastColoredTextBoxNS.FastColoredTextBox txtCodeGen;
+    }
 }

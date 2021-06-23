@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Framework.Controls
+namespace CustomControls
 {
 	public class FloatForm : Form
 	{
