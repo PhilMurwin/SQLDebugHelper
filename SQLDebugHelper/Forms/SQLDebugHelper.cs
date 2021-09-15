@@ -104,6 +104,23 @@ namespace SQLDebugHelper
 			this.Close();
 		}
 
+		private void toolCboServer_SelectedIndexChanged( object sender, EventArgs e )
+		{
+			var serverProfile = toolCboServer.SelectedItem.ToString();
+
+			var dbList = DBObjects.GetDatabaseList( serverProfile );
+
+			toolCboDB.Items.Clear();
+			toolCboDB.Items.AddRange( dbList.ToArray() );
+
+			if ( toolCboDB.Items.Count > 0 )
+			{
+				toolCboDB.SelectedIndex = 0;
+			}
+
+			SetTree( "" );
+		}
+
 		private void toolCboDB_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
@@ -468,5 +485,5 @@ namespace SQLDebugHelper
             var sqlFile = new GetFileFromSQL( tableName, connectionString );
             var result = sqlFile.ShowDialog();
         }
-	}
+    }
 }

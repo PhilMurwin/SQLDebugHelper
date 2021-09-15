@@ -109,6 +109,7 @@
             // 
             this.toolCboServer.Name = "toolCboServer";
             this.toolCboServer.Size = new System.Drawing.Size(121, 25);
+            this.toolCboServer.SelectedIndexChanged += new System.EventHandler(this.toolCboServer_SelectedIndexChanged);
             // 
             // lblDB
             // 
